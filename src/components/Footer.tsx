@@ -49,7 +49,7 @@ const footerLinks = [
 const socialLinks = [
   { icon: Instagram, href: "https://instagram.com/yarnbloom_crochet", label: "Instagram" },
   { icon: MessageCircle, href: "https://wa.me/+918310385649", label: "WhatsApp" },
-  { icon: Mail, href: "sandhyagowdaaladka@gmail.com", label: "Email" },
+  { icon: Mail, href: "mailto:thejaswipt@gmail.com", label: "Email" },
 ];
 
 export default function Footer() {

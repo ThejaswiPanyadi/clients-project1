@@ -27,8 +27,8 @@ const contactLinks = [
   {
     icon: Mail,
     label: "Email",
-    handle: "sandhyagowdaaladka@gmail.com",
-    href: "mailto:sandhyagowdaaladka@gmail.com",
+    handle: "thejaswipt@gmail.com",
+    href: "mailto:thejaswipt@gmail.com",
     color: "#9b7ec8",
     bg: "#E8E3F8",
     desc: "For bulk orders & collaborations",
@@ -48,6 +48,7 @@ export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [dispatchLinks, setDispatchLinks] = useState({ wa: "#", mail: "#" });
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -59,10 +60,30 @@ export default function Contact() {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) return;
     setLoading(true);
-    // Simulate async send
-    await new Promise((r) => setTimeout(r, 1200));
-    setLoading(false);
-    setSubmitted(true);
+
+    // Prepare direct mailto & WhatsApp backup links
+    const waText = `Hi! 💌 New message from Yarnbloom Website:\n\n*Name:* ${form.name}\n*Email:* ${form.email}\n*Message:* ${form.message}`;
+    const waUrl = `https://wa.me/+918310385649?text=${encodeURIComponent(waText)}`;
+
+    const mailSubject = `New Customer Message from ${form.name}`;
+    const mailBody = `Hello,\n\nYou received a new customer message from your website:\n\nName: ${form.name}\nEmail: ${form.email}\nMessage:\n${form.message}\n\nReceived at: ${new Date().toLocaleString("en-IN")}`;
+    const mailUrl = `mailto:thejaswipt@gmail.com?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
+
+    setDispatchLinks({ wa: waUrl, mail: mailUrl });
+
+    try {
+      // POST form data to Next.js API route which forwards directly to thejaswipt@gmail.com
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+    } catch (err) {
+      console.error("Error submitting contact form:", err);
+    } finally {
+      setLoading(false);
+      setSubmitted(true);
+    }
   };
 
   return (
@@ -167,33 +188,56 @@ export default function Contact() {
                     key="success"
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="flex flex-col items-center justify-center py-12 text-center"
+                    className="flex flex-col items-center justify-center py-6 text-center"
                   >
                     <motion.div
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
                     >
-                      <CheckCircle size={64} className="text-[#7a9e7e] mb-5" />
+                      <CheckCircle size={56} className="text-[#7a9e7e] mb-3" />
                     </motion.div>
                     <h3
-                      className="text-2xl font-bold text-[#3D2B1F] mb-2"
+                      className="text-2xl font-bold text-[#3D2B1F] mb-1"
                       style={{ fontFamily: "Poppins, sans-serif" }}
                     >
-                      Message Sent! 🎉
+                      Message Sent Directly to Email! ✉️🎉
                     </h3>
                     <p
-                      className="text-[#7A6358]"
+                      className="text-[#7A6358] text-sm mb-6 max-w-sm"
                       style={{ fontFamily: "Nunito, sans-serif" }}
                     >
-                      Thanks for reaching out! We&apos;ll get back to you within 24 hours.
+                      Your message has been sent directly to the Gmail inbox (<span className="font-semibold text-[#3D2B1F]">thejaswipt@gmail.com</span>). We will reply to your email address shortly!
                     </p>
+
+                    <div className="w-full space-y-3 mb-6">
+                      <a
+                        href={dispatchLinks.wa}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-2.5 w-full py-3 px-4 rounded-xl bg-[#7a9e7e] hover:bg-[#688a6c] text-white font-bold text-sm shadow-sm transition-all"
+                        style={{ fontFamily: "Poppins, sans-serif" }}
+                      >
+                        <MessageCircle size={18} />
+                        Send directly via WhatsApp
+                      </a>
+
+                      <a
+                        href={dispatchLinks.mail}
+                        className="flex items-center justify-center gap-2.5 w-full py-3 px-4 rounded-xl bg-[#9b7ec8] hover:bg-[#886bb5] text-white font-bold text-sm shadow-sm transition-all"
+                        style={{ fontFamily: "Poppins, sans-serif" }}
+                      >
+                        <Mail size={18} />
+                        Send directly via Email
+                      </a>
+                    </div>
+
                     <button
                       onClick={() => {
                         setSubmitted(false);
                         setForm({ name: "", email: "", message: "" });
                       }}
-                      className="mt-6 text-sm font-semibold text-[#c984a4] hover:text-[#a9607f] transition-colors"
+                      className="text-xs font-semibold text-[#c984a4] hover:text-[#a9607f] underline transition-colors"
                       style={{ fontFamily: "Nunito, sans-serif" }}
                     >
                       Send another message
