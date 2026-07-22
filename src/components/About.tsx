@@ -80,7 +80,7 @@ export default function About() {
                     className="text-2xl font-bold text-[#3D2B1F]"
                     style={{ fontFamily: "Poppins, sans-serif" }}
                   >
-                    Sandhya Gowda
+                    Sandhya Gowdaaa
                   </h3>
 
                   <p
