@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
-import profilePic from "../../public/images/profile.jpeg";
+// import profilePic from "../../public/images/profile.jpeg";
 
 const highlights = [
   {
@@ -63,13 +63,13 @@ export default function About() {
                 <div className="relative w-36 h-36 mx-auto mb-6">
                   <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#FADADD] via-[#E8E3F8] to-[#F4E9DC] p-1 shadow-xl">
                     <div className="relative w-full h-full rounded-full overflow-hidden bg-white">
-                      <Image
-                        src={profilePic}
+                      {/* <Image */}
+                        // src=
                         alt="Sandhya Gowda"
                         fill
                         priority
                         className="object-cover"
-                      />
+                      {/* /> */}
                     </div>
                   </div>
                 </div>
