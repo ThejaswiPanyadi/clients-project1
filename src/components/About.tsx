@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
-// import profilePic from "../../public/images/profile.jpeg";
+import profilePic from "../../public/images/profile.jpeg";
 
 const highlights = [
   {
@@ -63,13 +63,13 @@ export default function About() {
                 <div className="relative w-36 h-36 mx-auto mb-6">
                   <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#FADADD] via-[#E8E3F8] to-[#F4E9DC] p-1 shadow-xl">
                     <div className="relative w-full h-full rounded-full overflow-hidden bg-white">
-                      {/* <Image */}
-                        // src=
+                      <Image
+                        src={profilePic}
                         alt="Sandhya Gowda"
                         fill
                         priority
                         className="object-cover"
-                      {/* /> */}
+                      />
                     </div>
                   </div>
                 </div>
@@ -94,9 +94,9 @@ export default function About() {
                     className="text-[#7A6358] mt-4 text-sm leading-relaxed"
                     style={{ fontFamily: "Nunito, sans-serif" }}
                   >
-                    "I started crocheting during lockdown and fell completely
+                    &quot;I started crocheting during lockdown and fell completely
                     in love. Now I get to share that love with the world —
-                    one stitch at a time."
+                    one stitch at a time.&quot;
                   </p>
                 </div>
 
@@ -161,7 +161,7 @@ export default function About() {
               className="text-base text-[#7A6358] leading-relaxed mb-10"
               style={{ fontFamily: "Nunito, sans-serif" }}
             >
-              Whether it's a plushie for your little one, a bouquet that never
+              Whether it&apos;s a plushie for your little one, a bouquet that never
               wilts, or a tiny keychain that sparks joy — we put our whole heart
               into every creation.
             </p>
