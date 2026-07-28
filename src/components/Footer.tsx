@@ -90,7 +90,7 @@ export default function Footer() {
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
-              href="https://wa.me/919999999999"
+              href="https://wa.me/+918310385649"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-white text-[#c984a4] font-bold rounded-full px-7 py-3 shadow-lg hover:shadow-xl transition-all text-sm"

@@ -103,8 +103,8 @@ export default function About() {
                 {/* Stats */}
                 <div className="grid grid-cols-3 gap-4 mt-8 pt-6 border-t border-[#FADADD]">
                   {[
-                    { value: "1+", label: "Years" },
-                    { value: "100+", label: "Orders" },
+                    { value: "5+", label: "months" },
+                    { value: "50+", label: "Orders" },
                     { value: "50+", label: "Designs" },
                   ].map((item) => (
                     <div key={item.label} className="text-center">
