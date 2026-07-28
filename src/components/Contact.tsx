@@ -27,8 +27,8 @@ const contactLinks = [
   {
     icon: Mail,
     label: "Email",
-    handle: "thejaswipt@gmail.com",
-    href: "mailto:thejaswipt@gmail.com",
+    handle: "sandhyaaladka@gmail.com",
+    href: "mailto:sandhyaaladka@gmail.com",
     color: "#9b7ec8",
     bg: "#E8E3F8",
     desc: "For bulk orders & collaborations",

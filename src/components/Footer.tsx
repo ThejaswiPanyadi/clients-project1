@@ -30,8 +30,7 @@ const footerLinks = [
     links: [
       { label: "Collection", href: "#collection" },
       { label: "Latest Creations", href: "#latest" },
-      { label: "Categories", href: "#categories" },
-      { label: "Gallery", href: "#gallery" },
+      
       { label: "Reviews", href: "#testimonials" },
     ],
   },
@@ -49,7 +48,7 @@ const footerLinks = [
 const socialLinks = [
   { icon: Instagram, href: "https://instagram.com/yarnbloom_crochet", label: "Instagram" },
   { icon: MessageCircle, href: "https://wa.me/+918310385649", label: "WhatsApp" },
-  { icon: Mail, href: "mailto:thejaswipt@gmail.com", label: "Email" },
+  { icon: Mail, href: "mailto:sandhyaaladka@gmail.com", label: "Email" },
 ];
 
 export default function Footer() {

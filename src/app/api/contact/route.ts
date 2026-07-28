@@ -28,7 +28,7 @@ export async function POST(req: Request) {
         subject: `💌 New Customer Inquiry from ${name}`,
         message: `You received a new message from your Yarnbloom Crochet website!\n\nCustomer Details:\n------------------\nName: ${name}\nEmail: ${email}\n\nMessage Content:\n${message}\n\n------------------\nNote: Hit 'Reply' in Gmail to reply directly to ${email}.`,
         from_name: `${name} (Yarnbloom Website)`,
-        to_email: "thejaswipt@gmail.com",
+        to_email: "sandhyaaladka@gmail.com",
       }),
     });
 
@@ -37,7 +37,7 @@ export async function POST(req: Request) {
     if (data.success) {
       return NextResponse.json({
         success: true,
-        message: "Message successfully sent to thejaswipt@gmail.com",
+        message: "Message successfully sent to sandhyaaladka@gmail.com",
         data,
       });
     } else {
